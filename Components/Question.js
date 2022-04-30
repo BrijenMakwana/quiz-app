@@ -24,9 +24,8 @@ const styles = StyleSheet.create({
         minHeight: 200,
         padding: 10,
         alignSelf: "center",
-        marginTop: 20,
-        borderRadius: 10
-
+        marginTop: 50,
+        borderRadius: 10,
     },
     numberContainer:{
         position: "absolute",
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     },
     number:{
         fontSize: 20,
-        color: "#ffba08",
+        color: "#000",
         fontWeight: "bold"
     },
     question:{
