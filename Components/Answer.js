@@ -1,11 +1,29 @@
-import React from 'react';
-import {View,Text,StyleSheet}  from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 
 const Answer = (props) => {
+    const [answerColor,setAnswerColor] = useState("#ffba08");
+
+    useEffect(() => {
+        setAnswerColor("#ffba08")
+    } , [props.answer]);
+
+    const isCorrectAnswer = () => {
+        if(props.answer === props.correct_answer){
+            setAnswerColor("#B4E197");
+        }else{
+            setAnswerColor("#ff0000");
+        }
+    }
     return(
-        <View style={styles.container}>
+        <Pressable
+            style={[styles.container,{
+                backgroundColor: answerColor
+            }]}
+            onPress={isCorrectAnswer}
+        >
             <Text style={styles.answer}>{props.answer}</Text>
-        </View>
+        </Pressable>
     );
 }
 
@@ -17,7 +35,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         alignSelf: "center",
-        backgroundColor: "#ffba08",
         borderRadius: 5,
         padding: 10,
         marginTop: 30

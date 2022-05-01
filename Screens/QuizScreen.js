@@ -46,11 +46,18 @@ const QuizScreen = () => {
                     <View style={styles.answerContainer}>
                         {
                             questions[currentQuestion].incorrect_answers.map((item,index)=>(
-                                <Answer key={index} answer={item}/>
+                                <Answer
+                                    key={index}
+                                    answer={item}
+                                    correct_answer={questions[currentQuestion].correct_answer}
+                                />
                             ))
                         }
                         {
-                            <Answer answer={questions[currentQuestion].correct_answer}/>
+                            <Answer
+                                answer={questions[currentQuestion].correct_answer}
+                                correct_answer={questions[currentQuestion].correct_answer}
+                            />
                         }
                     </View>
                 </> :
