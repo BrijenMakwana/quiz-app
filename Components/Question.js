@@ -5,7 +5,7 @@ const Question = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.numberContainer}>
-                <Text style={styles.number}>5 / 10</Text>
+                <Text style={styles.number}>{props.currentQuestion + 1} / {props.totalQuestions}</Text>
             </View>
             <Text style={styles.question}>
                 {props.question}

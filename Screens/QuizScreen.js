@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {SafeAreaView,StyleSheet,View,Text} from "react-native";
+import {SafeAreaView,StyleSheet,View,Text,Pressable} from "react-native";
 import Question from "../Components/Question";
 import Answer from "../Components/Answer";
 import axios from "axios";
@@ -22,15 +22,26 @@ const QuizScreen = () => {
             .then(function () {
                 // always executed
             });
-    },[])
+    },[]);
 
+    //next question
+
+    const nextQuestion = () => {
+        if(currentQuestion < questions.length-1){
+            setCurrentQuestion(prev => prev + 1)
+        }
+    }
     return (
         <SafeAreaView style={styles.container}>
             {
                 questions.length > 0 ?
                 <>
                     {
-                        <Question question={questions[currentQuestion].question}/>
+                        <Question
+                            question={questions[currentQuestion].question}
+                            currentQuestion={currentQuestion}
+                            totalQuestions={questions.length}
+                        />
                     }
                     <View style={styles.answerContainer}>
                         {
@@ -46,6 +57,11 @@ const QuizScreen = () => {
                     <Text>Loading...</Text>
             }
 
+            {/*next button*/}
+            <Pressable style={styles.buttonContainer} onPress={nextQuestion}>
+                <Text style={styles.buttonText}>Next</Text>
+            </Pressable>
+
 
         </SafeAreaView>
     );
@@ -60,5 +76,20 @@ const styles = StyleSheet.create({
     answerContainer:{
         justifyContent: "center",
 
+    },
+    buttonContainer:{
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#ff4d6d",
+        width: 100,
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 30,
+        alignSelf: "flex-end",
+        marginRight: 20
+    },
+    buttonText:{
+        color: "#fff",
+        fontSize: 20
     }
 });
