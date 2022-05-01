@@ -1,10 +1,10 @@
 import React from 'react';
 import {View,Text,StyleSheet}  from 'react-native';
 
-const Answer = () => {
+const Answer = (props) => {
     return(
         <View style={styles.container}>
-            <Text style={styles.answer}>Answer</Text>
+            <Text style={styles.answer}>{props.answer}</Text>
         </View>
     );
 }

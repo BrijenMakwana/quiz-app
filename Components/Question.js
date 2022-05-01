@@ -1,13 +1,15 @@
 import React from "react";
 import {View,Text,StyleSheet} from "react-native";
 
-const Question = () => {
+const Question = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.numberContainer}>
                 <Text style={styles.number}>5 / 10</Text>
             </View>
-            <Text style={styles.question}>What is India's capitol?What is India's capitol?What is India's capitol?What is India's capitol?</Text>
+            <Text style={styles.question}>
+                {props.question}
+            </Text>
         </View>
     )
 }
