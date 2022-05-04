@@ -8,13 +8,19 @@ const Answer = (props) => {
         setAnswerColor("#ffba08")
     } , [props.answer]);
 
+
     const isCorrectAnswer = () => {
-        if(props.answer === props.correct_answer){
-            setAnswerColor("#B4E197");
-            props.increaseScore();
-        }else{
-            setAnswerColor("#ff0000");
+        if(props.isAnswered === false){
+            if(props.answer === props.correct_answer ){
+                setAnswerColor("#B4E197");
+                props.increaseScore();
+
+            }else{
+                setAnswerColor("#ff0000");
+            }
+            props.setIsAnswered(true);
         }
+
     }
     return(
         <Pressable

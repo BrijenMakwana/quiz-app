@@ -8,6 +8,8 @@ const QuizScreen = () => {
     const [questions,setQuestions] = useState([]);
     const [currentQuestion,setCurrentQuestion] = useState(0);
     const [score,setScore] = useState(0);
+    const [isAnswered,setIsAnswered] = useState(false);
+
 
     useEffect(()=>{
         axios.get('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple')
@@ -31,6 +33,7 @@ const QuizScreen = () => {
         if(currentQuestion < questions.length-1){
             setCurrentQuestion(prev => prev + 1)
         }
+        setIsAnswered(false);
     }
 
     //score
@@ -63,6 +66,8 @@ const QuizScreen = () => {
                                     answer={item}
                                     correct_answer={questions[currentQuestion].correct_answer}
                                     increaseScore={increaseScore}
+                                    isAnswered={isAnswered}
+                                    setIsAnswered={setIsAnswered}
                                 />
                             ))
                         }
@@ -71,6 +76,8 @@ const QuizScreen = () => {
                                 answer={questions[currentQuestion].correct_answer}
                                 correct_answer={questions[currentQuestion].correct_answer}
                                 increaseScore={increaseScore}
+                                isAnswered={isAnswered}
+                                setIsAnswered={setIsAnswered}
                             />
                         }
                     </View>
