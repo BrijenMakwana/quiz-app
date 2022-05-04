@@ -11,6 +11,7 @@ const Answer = (props) => {
     const isCorrectAnswer = () => {
         if(props.answer === props.correct_answer){
             setAnswerColor("#B4E197");
+            props.increaseScore();
         }else{
             setAnswerColor("#ff0000");
         }

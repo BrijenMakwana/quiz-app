@@ -7,6 +7,7 @@ import axios from "axios";
 const QuizScreen = () => {
     const [questions,setQuestions] = useState([]);
     const [currentQuestion,setCurrentQuestion] = useState(0);
+    const [score,setScore] = useState(0);
 
     useEffect(()=>{
         axios.get('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple')
@@ -31,11 +32,22 @@ const QuizScreen = () => {
             setCurrentQuestion(prev => prev + 1)
         }
     }
+
+    //score
+
+    const increaseScore = () => {
+        setScore(prev => prev + 1)
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             {
                 questions.length > 0 ?
                 <>
+                    <View style={styles.scoreContainer}>
+                        <Text style={styles.score}>Score: {score}</Text>
+                    </View>
+
                     {
                         <Question
                             question={questions[currentQuestion].question}
@@ -50,6 +62,7 @@ const QuizScreen = () => {
                                     key={index}
                                     answer={item}
                                     correct_answer={questions[currentQuestion].correct_answer}
+                                    increaseScore={increaseScore}
                                 />
                             ))
                         }
@@ -57,6 +70,7 @@ const QuizScreen = () => {
                             <Answer
                                 answer={questions[currentQuestion].correct_answer}
                                 correct_answer={questions[currentQuestion].correct_answer}
+                                increaseScore={increaseScore}
                             />
                         }
                     </View>
@@ -79,6 +93,22 @@ export default QuizScreen;
 const styles = StyleSheet.create({
     container:{
         flex: 1,
+        backgroundColor: "#fff"
+    },
+    scoreContainer:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+        padding: 10,
+        backgroundColor: "#ffba08",
+        marginRight: 20,
+        borderRadius: 10,
+        minWidth: 100,
+        marginTop: 10
+
+    },
+    score:{
+        fontSize: 20
     },
     answerContainer:{
         justifyContent: "center",

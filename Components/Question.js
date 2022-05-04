@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         minHeight: 200,
         padding: 10,
         alignSelf: "center",
-        marginTop: 50,
+        marginTop: 30,
         borderRadius: 10,
     },
     numberContainer:{
