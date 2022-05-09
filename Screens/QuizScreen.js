@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'flex-end',
         padding: 10,
-        backgroundColor: "#ffba08",
+        backgroundColor: "#d9d9d9",
         marginRight: 20,
         borderRadius: 10,
         minWidth: 100,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     buttonContainer:{
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#ff4d6d",
+        backgroundColor: "#3c6e71",
         width: 100,
         padding: 10,
         borderRadius: 10,

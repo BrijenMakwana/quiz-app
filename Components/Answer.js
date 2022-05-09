@@ -5,7 +5,7 @@ const Answer = (props) => {
     const [answerColor,setAnswerColor] = useState("#ffba08");
 
     useEffect(() => {
-        setAnswerColor("#ffba08")
+        setAnswerColor("#faf0ca")
     } , [props.answer]);
 
 
