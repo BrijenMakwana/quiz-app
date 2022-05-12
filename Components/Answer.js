@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 
 const Answer = (props) => {
-    const [answerColor,setAnswerColor] = useState("#ffba08");
+    const [answerColor,setAnswerColor] = useState("#faf0ca");
 
     useEffect(() => {
         setAnswerColor("#faf0ca")

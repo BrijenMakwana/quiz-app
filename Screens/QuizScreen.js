@@ -9,6 +9,7 @@ const QuizScreen = () => {
     const [currentQuestion,setCurrentQuestion] = useState(0);
     const [score,setScore] = useState(0);
     const [isAnswered,setIsAnswered] = useState(false);
+    // const [progress,setProgress] = useState((currentQuestion+1)*100);
 
 
     useEffect(()=>{
@@ -44,13 +45,16 @@ const QuizScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+
             {
                 questions.length > 0 ?
                 <>
                     <View style={styles.scoreContainer}>
                         <Text style={styles.score}>Score: {score}</Text>
                     </View>
-
+                    <View style={[styles.progressBar,{
+                        width: (currentQuestion+1)*10 + '%'
+                    }]}/>
                     {
                         <Question
                             question={questions[currentQuestion].question}
@@ -112,10 +116,15 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         minWidth: 100,
         marginTop: 10
-
     },
     score:{
         fontSize: 20
+    },
+    progressBar:{
+        backgroundColor: "#3c6e71",
+        height: 5,
+        borderRadius:10,
+        marginTop: 20
     },
     answerContainer:{
         justifyContent: "center",
