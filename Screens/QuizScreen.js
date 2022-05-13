@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {SafeAreaView,StyleSheet,View,Text,Pressable} from "react-native";
+import {SafeAreaView,StyleSheet,View,Text,Pressable,ActivityIndicator,Platform} from "react-native";
 import Question from "../Components/Question";
 import Answer from "../Components/Answer";
 import axios from "axios";
 import {useRoute} from "@react-navigation/native";
+
+
 
 const QuizScreen = () => {
     const [questions,setQuestions] = useState([]);
@@ -90,7 +92,12 @@ const QuizScreen = () => {
                         <Text style={styles.buttonText}>{isAnswered ? "Next" : "Skip"}</Text>
                     </Pressable>
                 </> :
-                    <Text>Loading...</Text>
+                    <ActivityIndicator color="#3c6e71" size="large" style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flex: 1,
+                        // alignSelf: 'center'
+                    }}/>
             }
 
         </SafeAreaView>
@@ -113,7 +120,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         borderRadius: 10,
         minWidth: 100,
-        marginTop: 10
+        marginTop: Platform.OS === "android" ? 50 : 10
     },
     score:{
         fontSize: 20
