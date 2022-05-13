@@ -108,7 +108,7 @@ const categories = [
         <SafeAreaView style={styles.container}>
         <FlatList
             data={categories}
-            renderItem={({item}) => <Category title={item.title} image={item.image} />}
+            renderItem={({item}) => <Category title={item.title} image={item.image} id={item.id}/>}
             keyextractor={item => item.id}
             showsVerticalScrollIndicator={false}
         />

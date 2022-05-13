@@ -3,17 +3,17 @@ import {SafeAreaView,StyleSheet,View,Text,Pressable} from "react-native";
 import Question from "../Components/Question";
 import Answer from "../Components/Answer";
 import axios from "axios";
+import {useRoute} from "@react-navigation/native";
 
 const QuizScreen = () => {
     const [questions,setQuestions] = useState([]);
     const [currentQuestion,setCurrentQuestion] = useState(0);
     const [score,setScore] = useState(0);
     const [isAnswered,setIsAnswered] = useState(false);
-    // const [progress,setProgress] = useState((currentQuestion+1)*100);
-
+    const route = useRoute();
 
     useEffect(()=>{
-        axios.get('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple')
+        axios.get(`https://opentdb.com/api.php?amount=10&category=${route.params.category}&difficulty=easy&type=multiple`)
             .then(function (response) {
                 // handle success
                 setQuestions(response.data.results);

@@ -1,14 +1,22 @@
 import React, {useEffect, useState} from "react";
 import {SafeAreaView,StyleSheet,View,Text,Pressable,Image} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 
 const Category = (props) => {
+    const navigation = useNavigation();
+
+    const goToQuiz = () => {
+        navigation.navigate("Quiz",{
+            category: props.id
+        })
+    }
 
     return (
-        <View style={styles.container}>
+        <Pressable style={styles.container} onPress={goToQuiz}>
             <Image source={props.image} style={styles.image}/>
             <Text style={styles.title}>{props.title}</Text>
-        </View>
+        </Pressable>
     );
 };
 
