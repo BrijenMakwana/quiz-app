@@ -85,15 +85,13 @@ const QuizScreen = () => {
                             />
                         }
                     </View>
+                    {/*next button*/}
+                    <Pressable style={styles.buttonContainer} onPress={nextQuestion}>
+                        <Text style={styles.buttonText}>{isAnswered ? "Next" : "Skip"}</Text>
+                    </Pressable>
                 </> :
                     <Text>Loading...</Text>
             }
-
-            {/*next button*/}
-            <Pressable style={styles.buttonContainer} onPress={nextQuestion}>
-                <Text style={styles.buttonText}>Next</Text>
-            </Pressable>
-
 
         </SafeAreaView>
     );

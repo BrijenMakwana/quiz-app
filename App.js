@@ -22,7 +22,9 @@ export default function App() {
                   headerTintColor: '#fff',
           }}
           />
-          <Stack.Screen name="Quiz" component={QuizScreen} />
+          <Stack.Screen name="Quiz" component={QuizScreen} options={{
+              headerShown: false,
+          }}/>
         </Stack.Navigator>
       </NavigationContainer>
   );
