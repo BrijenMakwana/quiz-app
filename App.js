@@ -1,12 +1,20 @@
 
 import { StyleSheet, Text, View } from 'react-native';
 import QuizScreen from "./Screens/QuizScreen";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from "./Screens/HomeScreen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <QuizScreen/>
-    </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Quiz" component={QuizScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 
