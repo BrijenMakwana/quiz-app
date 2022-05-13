@@ -10,8 +10,18 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Navigator scr>
+          <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{
+                  title: "Select Category" ,
+                  headerStyle: {
+                      backgroundColor: '#3c6e71',
+                  },
+                  headerTintColor: '#fff',
+          }}
+          />
           <Stack.Screen name="Quiz" component={QuizScreen} />
         </Stack.Navigator>
       </NavigationContainer>

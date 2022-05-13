@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         padding: 10,
         marginTop: 20,
-        borderRadius: 20,
+        borderRadius: 10,
         shadowColor: "#000",
         shadowOpacity: 0.5,
         elevation:5,
