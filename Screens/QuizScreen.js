@@ -3,7 +3,7 @@ import {SafeAreaView,StyleSheet,View,Text,Pressable,ActivityIndicator,Platform} 
 import Question from "../Components/Question";
 import Answer from "../Components/Answer";
 import axios from "axios";
-import {useRoute} from "@react-navigation/native";
+import {useRoute,useNavigation} from "@react-navigation/native";
 
 
 
@@ -13,6 +13,7 @@ const QuizScreen = () => {
     const [score,setScore] = useState(0);
     const [isAnswered,setIsAnswered] = useState(false);
     const route = useRoute();
+    const navigation = useNavigation();
 
     useEffect(()=>{
         axios.get(`https://opentdb.com/api.php?amount=10&category=${route.params.category}&difficulty=easy&type=multiple`)
@@ -35,6 +36,11 @@ const QuizScreen = () => {
     const nextQuestion = () => {
         if(currentQuestion < questions.length-1){
             setCurrentQuestion(prev => prev + 1)
+        }
+        else{
+            navigation.navigate("Finish",{
+                score:score
+            });
         }
         setIsAnswered(false);
     }

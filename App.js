@@ -4,13 +4,14 @@ import QuizScreen from "./Screens/QuizScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "./Screens/HomeScreen";
+import FinishScreen from "./Screens/FinishScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator scr>
+        <Stack.Navigator>
           <Stack.Screen
               name="Home"
               component={HomeScreen}
@@ -25,6 +26,9 @@ export default function App() {
           <Stack.Screen name="Quiz" component={QuizScreen} options={{
               headerShown: false,
           }}/>
+            <Stack.Screen name="Finish" component={FinishScreen} options={{
+                headerShown: false,
+            }}/>
         </Stack.Navigator>
       </NavigationContainer>
   );
