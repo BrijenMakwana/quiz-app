@@ -8,7 +8,8 @@ const Question = (props) => {
                 <Text style={styles.number}>{props.currentQuestion + 1} / {props.totalQuestions}</Text>
             </View>
             <Text style={styles.question}>
-                {props.question}
+                {props.question.replace(/&quot;|&#039;/g,"")}
+
             </Text>
         </View>
     )

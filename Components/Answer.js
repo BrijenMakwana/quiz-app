@@ -29,7 +29,9 @@ const Answer = (props) => {
             }]}
             onPress={isCorrectAnswer}
         >
-            <Text style={styles.answer}>{props.answer}</Text>
+            <Text style={styles.answer}>
+                {props.answer.replace(/&quot;|&#039;/g,"")}
+            </Text>
         </Pressable>
     );
 }
